@@ -1,3 +1,7 @@
+import { readInput } from './interfaces/input.js';
+import { processInput } from './services/processor.js';
+import { writeOutput } from './interfaces/output.js';
+
 const start2dPA = () => {
   const input = readInput();
 
