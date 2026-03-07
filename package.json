@@ -1,0 +1,26 @@
+{
+  "name": "pna2d",
+  "version": "1.0.0",
+  "description": "app to calculate Perimeter and Area of 2D shapes",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellvita/pna2d.git"
+  },
+  "keywords": [],
+  "author": "hellvita <seredaolga03@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellvita/pna2d/issues"
+  },
+  "homepage": "https://github.com/hellvita/pna2d#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0"
+  }
+}
