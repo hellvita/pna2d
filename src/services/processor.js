@@ -9,6 +9,6 @@ export const processInput = (input) => {
   if (isCommand(normalizedInput)) {
     return processCommand(normalizedInput);
   } else {
-    return processFigure(normalizedInput); // TODO
+    return processFigure(normalizedInput);
   }
 };
