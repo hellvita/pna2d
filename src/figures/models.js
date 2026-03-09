@@ -242,3 +242,106 @@ export class Square extends Rectangle {
     if (typeof side === 'number' && side >= 0) this.#side = side;
   }
 }
+
+// ** ---- TRIANGLE ---- ** //
+export class Triangle {
+  #point1 = { x: null, y: null };
+  #point2 = { x: null, y: null };
+  #point3 = { x: null, y: null };
+
+  #sideA = null;
+  #sideB = null;
+  #sideC = null;
+
+  constructor({
+    x1 = null,
+    y1 = null,
+    x2 = null,
+    y2 = null,
+    x3 = null,
+    y3 = null,
+  } = {}) {
+    if (x1 !== null && y1 !== null) {
+      this.#point1.x = x1;
+      this.#point1.y = y1;
+    }
+
+    if (x2 !== null && y2 !== null) {
+      this.#point2.x = x2;
+      this.#point2.y = y2;
+    }
+
+    if (x3 !== null && y3 !== null) {
+      this.#point3.x = x3;
+      this.#point3.y = y3;
+    }
+  }
+
+  calculatePerimeter({ decimalPlaces = 2 } = {}) {
+    this.#calculateSides();
+
+    if (this.#sideA === null || this.#sideB === null || this.#sideC === null)
+      return null;
+
+    const perimeter = this.#sideA + this.#sideB + this.#sideC;
+
+    return Number(perimeter.toFixed(decimalPlaces));
+  }
+
+  calculateArea({ decimalPlaces = 2 } = {}) {
+    this.#calculateSides();
+
+    if (this.#sideA === null || this.#sideB === null || this.#sideC === null)
+      return null;
+
+    const semiPerimeter = (this.#sideA + this.#sideB + this.#sideC) / 2;
+    const area = Math.sqrt(
+      semiPerimeter *
+        (semiPerimeter - this.#sideA) *
+        (semiPerimeter - this.#sideB) *
+        (semiPerimeter - this.#sideC),
+    );
+
+    return Number(area.toFixed(decimalPlaces));
+  }
+
+  #calculateDistance(p1, p2) {
+    if (p1 === null || p2 === null) return null;
+
+    return Math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2);
+  }
+
+  #calculateSides() {
+    this.#sideA = this.#calculateDistance(this.#point1, this.#point2);
+    this.#sideB = this.#calculateDistance(this.#point2, this.#point3);
+    this.#sideC = this.#calculateDistance(this.#point3, this.#point1);
+  }
+
+  get name() {
+    return FIGURES.TRIANGLE;
+  }
+
+  get point1() {
+    return this.#point1;
+  }
+  set point1({ x = null, y = null }) {
+    if (x !== null) this.#point1.x = x;
+    if (y !== null) this.#point1.y = y;
+  }
+
+  get point2() {
+    return this.#point2;
+  }
+  set point2({ x = null, y = null }) {
+    if (x !== null) this.#point2.x = x;
+    if (y !== null) this.#point2.y = y;
+  }
+
+  get point3() {
+    return this.#point3;
+  }
+  set point3({ x = null, y = null }) {
+    if (x !== null) this.#point3.x = x;
+    if (y !== null) this.#point3.y = y;
+  }
+}
