@@ -141,6 +141,39 @@ const validateFigure = (figure) => {
       return circle;
     }
 
+    // ** ---- TRIANGLE ---- ** //
+    case FIGURES.TRIANGLE: {
+      const parsedTriangle = {
+        point1: {
+          x: Number(figure[2]),
+          y: Number(figure[3]),
+        },
+        point2: {
+          x: Number(figure[5]),
+          y: Number(figure[6]),
+        },
+        point3: {
+          x: Number(figure[8]),
+          y: Number(figure[9]),
+        },
+      };
+
+      const triangle = new Figure.Triangle({
+        x1: parsedTriangle.point1.x,
+        y1: parsedTriangle.point1.y,
+        x2: parsedTriangle.point2.x,
+        y2: parsedTriangle.point2.y,
+        x3: parsedTriangle.point3.x,
+        y3: parsedTriangle.point3.y,
+      });
+
+      if (triangle.point1.x === null || triangle.point1.y === null) return null;
+      if (triangle.point2.x === null || triangle.point2.y === null) return null;
+      if (triangle.point3.x === null || triangle.point3.y === null) return null;
+
+      return triangle;
+    }
+
     // ** ---- DEFAULT ---- ** //
     default: {
       return null;
