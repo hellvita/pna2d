@@ -9,7 +9,7 @@ import { formResult } from './utils.js';
 const processFigure = (figure) => {
   const parsedFigure = parseFigure(figure); // array
 
-  const validatedFigure = validateFigure(parsedFigure); // object | boolean
+  const validatedFigure = validateFigure(parsedFigure); // object | null
 
   if (!validatedFigure) {
     printFigureValidationError(figure);
