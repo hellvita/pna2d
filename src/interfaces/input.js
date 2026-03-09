@@ -4,7 +4,7 @@ import { stdin, stdout } from 'node:process';
 export const readInput = async () => {
   const rl = readline.createInterface({ input: stdin, output: stdout });
 
-  const input = await rl.question('>> ');
+  const input = await rl.question('\n>> ');
 
   rl.close();
 
