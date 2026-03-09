@@ -2,6 +2,7 @@ export const FIGURES = {
   SQUARE: 'square',
   RECTANGLE: 'rectangle',
   CIRCLE: 'circle',
+  TRIANGLE: 'triangle',
 };
 
 export const PROMPT_EXAMPLES = {
@@ -16,6 +17,10 @@ export const PROMPT_EXAMPLES = {
   [FIGURES.CIRCLE]: {
     template: `${FIGURES.CIRCLE} center [x] [y] radius [r]`,
     example: `${FIGURES.CIRCLE} center 1 1 radius 2`,
+  },
+  [FIGURES.TRIANGLE]: {
+    template: `${FIGURES.TRIANGLE} point1 [x_1] [y_1] point2 [x_2] [y_2] point3 [x_3] [y_3]`,
+    example: `${FIGURES.TRIANGLE} Point1 5 5 Point2 8 8 Point3 10 2`,
   },
 };
 
