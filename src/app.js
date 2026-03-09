@@ -3,11 +3,14 @@ import { processInput } from './services/processor.js';
 import { writeOutput } from './interfaces/output.js';
 
 const start2dPA = async () => {
-  const input = await readInput();
+  // stop with the '--exit' command
+  while (true) {
+    const input = await readInput();
 
-  const result = processInput(input);
+    const result = processInput(input);
 
-  await writeOutput(result);
+    writeOutput(result);
+  }
 };
 
 export default start2dPA;
